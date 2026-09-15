@@ -122,10 +122,10 @@
             </div>
 
             <!-- Auto-loaded ADE Directory Status Badge -->
-            <div class="flex items-center space-x-3">
-                <div id="ade-directory-badge" class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ade-card border border-ade-border text-xs font-mono">
-                    <span id="ade-status-dot" class="w-2.5 h-2.5 rounded-full bg-ade-yellow shadow-[0_0_8px_#ffff07] animate-pulse"></span>
-                    <span class="text-zinc-300">ADE Lineup: <strong id="ade-artist-count" class="text-ade-yellow font-bold">2,319</strong> artists loaded</span>
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <div id="ade-directory-badge" class="flex items-center gap-2 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-ade-card border border-ade-border text-xs font-mono">
+                    <span id="ade-status-dot" class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-ade-yellow shadow-[0_0_8px_#ffff07] animate-pulse"></span>
+                    <span class="text-zinc-300"><span class="hidden sm:inline">ADE Lineup: </span><strong id="ade-artist-count" class="text-ade-yellow font-bold">2,319</strong><span class="hidden sm:inline"> artists loaded</span></span>
                 </div>
                 <button id="btn-custom-ade" onclick="toggleCustomAdeModal()" title="View or swap ADE Directory file" class="text-zinc-400 hover:text-white p-2 rounded-lg hover:bg-ade-surface transition text-xs flex items-center gap-1 border border-ade-border">
                     <i class="fa-solid fa-gear"></i>
@@ -325,28 +325,28 @@
             </div>
 
             <!-- Table Card & Filters -->
-            <div class="bg-ade-card border border-ade-border rounded-3xl p-5 sm:p-7 shadow-2xl flex flex-col gap-5">
+            <div class="bg-ade-card border border-ade-border rounded-3xl p-4 sm:p-7 shadow-2xl flex flex-col gap-5">
                 
                 <!-- Toolbar: Search, Match Filter, Country Filter, Sort, Export -->
                 <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 border-b border-ade-border pb-5">
                     
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-ade-yellow text-black flex items-center justify-center font-black text-lg">
+                        <div class="w-10 h-10 rounded-xl bg-ade-yellow text-black flex items-center justify-center font-black text-lg flex-shrink-0">
                             <i class="fa-solid fa-list-check"></i>
                         </div>
                         <div>
                             <h3 class="text-lg sm:text-xl font-black text-white uppercase tracking-tight">
                                 Matched Artists Lineup
                             </h3>
-                            <p class="text-xs text-zinc-400">Click any track to listen on Spotify, or click row to expand</p>
+                            <p class="text-xs text-zinc-400">Click any track to listen on Spotify, or click row/card to expand</p>
                         </div>
                     </div>
 
                     <!-- Search & Filter Controls -->
-                    <div class="flex flex-wrap items-center gap-2.5">
+                    <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 w-full lg:w-auto">
                         
                         <!-- Search Box -->
-                        <div class="relative flex-1 sm:w-56">
+                        <div class="relative col-span-2 sm:w-56">
                             <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
                             <input type="text" id="search-filter" 
                                    class="w-full bg-ade-dark border border-ade-border rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-ade-yellow transition"
@@ -355,7 +355,7 @@
 
                         <!-- Match Type Filter -->
                         <select id="match-type-filter" 
-                                class="bg-ade-dark border border-ade-border text-zinc-300 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-ade-yellow transition">
+                                class="col-span-2 sm:col-span-1 bg-ade-dark border border-ade-border text-zinc-300 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-ade-yellow transition">
                             <option value="strict" selected>Strict Matches (Exact & B2B)</option>
                             <option value="all">All (Include Partial Matches)</option>
                             <option value="exact_only">Exact 1:1 Only</option>
@@ -365,13 +365,13 @@
 
                         <!-- Country Filter -->
                         <select id="country-filter" 
-                                class="bg-ade-dark border border-ade-border text-zinc-300 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-ade-yellow transition">
+                                class="col-span-1 bg-ade-dark border border-ade-border text-zinc-300 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-ade-yellow transition">
                             <option value="">All Countries</option>
                         </select>
 
                         <!-- Sort Selector -->
                         <select id="sort-selector" 
-                                class="bg-ade-dark border border-ade-border text-zinc-300 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-ade-yellow transition">
+                                class="col-span-1 bg-ade-dark border border-ade-border text-zinc-300 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-ade-yellow transition">
                             <option value="songs_desc">Most Liked Songs</option>
                             <option value="date_desc">Recently Added</option>
                             <option value="name_asc">Artist Name (A-Z)</option>
@@ -379,14 +379,14 @@
 
                         <!-- Export Button -->
                         <button onclick="exportMatchedList()" 
-                                class="px-3.5 py-2 rounded-xl bg-ade-surface hover:bg-ade-hover border border-ade-border text-zinc-200 text-xs font-bold uppercase tracking-wider transition flex items-center gap-1.5 hover:border-ade-yellow/50">
+                                class="col-span-2 sm:w-auto justify-center px-3.5 py-2 rounded-xl bg-ade-surface hover:bg-ade-hover border border-ade-border text-zinc-200 text-xs font-bold uppercase tracking-wider transition flex items-center gap-1.5 hover:border-ade-yellow/50">
                             <i class="fa-solid fa-download text-ade-yellow"></i> Export
                         </button>
                     </div>
                 </div>
 
-                <!-- Table -->
-                <div class="overflow-x-auto rounded-2xl border border-ade-border">
+                <!-- Desktop Table View (>= md) -->
+                <div class="hidden md:block overflow-x-auto rounded-2xl border border-ade-border">
                     <table class="min-w-full divide-y divide-ade-border text-left text-sm">
                         <thead class="bg-ade-dark text-zinc-400 uppercase text-[11px] font-mono tracking-wider">
                             <tr>
@@ -411,7 +411,12 @@
                     </table>
                 </div>
 
-                <div class="flex items-center justify-between text-xs text-zinc-500 px-2">
+                <!-- Mobile Cards View (< md) -->
+                <div id="match-cards-container" class="md:hidden flex flex-col gap-3">
+                    <!-- Populated dynamically on mobile -->
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-zinc-500 px-1">
                     <span id="results-count-text">Showing 0 matches</span>
                     <span class="flex items-center gap-1"><i class="fa-brands fa-spotify text-[#1db954]"></i> Click song title to play on Spotify</span>
                 </div>
@@ -996,6 +1001,8 @@
         function renderTable() {
             const tbody = document.getElementById('match-table-body');
             tbody.innerHTML = '';
+            const cardsContainer = document.getElementById('match-cards-container');
+            if (cardsContainer) cardsContainer.innerHTML = '';
 
             const searchQuery = document.getElementById('search-filter').value.toLowerCase().trim();
             const countryVal = document.getElementById('country-filter').value;
@@ -1038,6 +1045,9 @@
 
             if (filtered.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-12 text-center text-zinc-500 font-medium">No matched artists found matching your filter criteria.</td></tr>`;
+                if (cardsContainer) {
+                    cardsContainer.innerHTML = `<div class="p-8 text-center text-zinc-500 bg-ade-dark/60 rounded-2xl border border-ade-border text-sm font-medium">No matched artists found matching your filter criteria.</div>`;
+                }
                 return;
             }
 
@@ -1054,13 +1064,14 @@
                     ? `<span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-zinc-300 font-mono text-xs font-bold">${m.country}</span>`
                     : `<span class="text-zinc-600">—</span>`;
 
-                // Interactive Clickable Track Pills in Preview column
                 const rowId = `track-detail-${idx}`;
+                const mobileRowId = `mobile-track-detail-${idx}`;
+                const previewTracks = m.tracks.slice(0, 2);
+                const extraCount = m.tracks.length - 2;
+
+                // Interactive Clickable Track Pills in Preview column (Desktop)
                 let tracksPreview = '';
                 if (m.tracks.length > 0) {
-                    const previewTracks = m.tracks.slice(0, 2);
-                    const extraCount = m.tracks.length - 2;
-                    
                     tracksPreview = `
                         <div class="flex flex-wrap items-center gap-1.5 max-w-[280px] sm:max-w-sm">
                             ${previewTracks.map(t => `
@@ -1083,7 +1094,7 @@
                     tracksPreview = `<span class="text-zinc-600 italic text-xs">No tracks listed</span>`;
                 }
 
-                // Expanded Tracks Drawer with direct Spotify Links
+                // Expanded Tracks Drawer with direct Spotify Links (Desktop)
                 const tracksListHtml = m.tracks.map(t => `
                     <li class="bg-zinc-950/90 border border-ade-border rounded-xl p-2.5 flex items-center justify-between gap-3 hover:border-[#1db954]/60 transition group/t">
                         <a href="${t.url}" target="_blank" rel="noopener noreferrer" 
@@ -1102,6 +1113,7 @@
                     </li>
                 `).join('');
 
+                // 1. DESKTOP ROW
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-ade-surface/40 transition border-b border-ade-border/60 group";
                 tr.innerHTML = `
@@ -1130,7 +1142,7 @@
                 `;
                 tbody.appendChild(tr);
 
-                // Hidden expanded detail row
+                // Hidden expanded detail row (Desktop)
                 const detailTr = document.createElement('tr');
                 detailTr.id = rowId;
                 detailTr.className = "hidden bg-black/60 border-b border-ade-border/60";
@@ -1155,6 +1167,107 @@
                     </td>
                 `;
                 tbody.appendChild(detailTr);
+
+                // 2. MOBILE CARD (< md)
+                if (cardsContainer) {
+                    const card = document.createElement('div');
+                    card.className = "bg-ade-dark/80 border border-ade-border rounded-2xl p-3.5 sm:p-4 flex flex-col gap-2.5 shadow-md hover:border-zinc-700 transition";
+                    
+                    const mobilePreviewPills = previewTracks.map(t => `
+                        <a href="${t.url}" target="_blank" rel="noopener noreferrer" 
+                           title="Play '${t.name.replace(/"/g, '&quot;')}' on Spotify"
+                           class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-900 hover:bg-[#1db954]/15 text-zinc-300 hover:text-[#1ed760] border border-zinc-800 hover:border-[#1db954]/50 transition text-xs truncate max-w-[140px] flex-shrink-0">
+                            <i class="fa-brands fa-spotify text-[11px] text-[#1db954]"></i>
+                            <span class="truncate font-medium">${t.name}</span>
+                        </a>
+                    `).join('');
+
+                    const mobileTracksListHtml = m.tracks.map(t => `
+                        <li class="bg-zinc-950 border border-ade-border rounded-xl p-2.5 flex items-center justify-between gap-2.5 hover:border-[#1db954]/60 transition">
+                            <a href="${t.url}" target="_blank" rel="noopener noreferrer" 
+                               title="Listen to '${t.name.replace(/"/g, '&quot;')}' on Spotify"
+                               class="flex items-center gap-2 text-xs text-zinc-200 hover:text-[#1ed760] transition truncate font-medium flex-1">
+                                <i class="fa-brands fa-spotify text-sm text-[#1db954] flex-shrink-0"></i>
+                                <span class="truncate font-medium">${t.name}</span>
+                            </a>
+                            <div class="flex items-center gap-2 flex-shrink-0">
+                                ${t.date ? `<span class="text-[9px] font-mono text-zinc-500">${t.date.split('T')[0]}</span>` : ''}
+                                <a href="${t.url}" target="_blank" rel="noopener noreferrer" 
+                                   class="px-2 py-1 rounded-lg bg-[#1db954]/15 hover:bg-[#1db954] text-[#1ed760] hover:text-black font-extrabold text-[10px] uppercase tracking-wider transition flex items-center gap-1">
+                                    <span>Play</span> <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
+                                </a>
+                            </div>
+                        </li>
+                    `).join('');
+
+                    card.innerHTML = `
+                        <!-- Top Row: Rank + Artist Info & ADE Button right at top-right -->
+                        <div class="flex items-start justify-between gap-2">
+                            <div class="flex items-start gap-2.5 min-w-0 flex-1">
+                                <span class="w-6 h-6 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400 font-mono text-[11px] font-black flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    ${idx + 1}
+                                </span>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-wrap items-center gap-1.5">
+                                        <span class="font-black text-white text-base leading-snug cursor-pointer hover:text-ade-yellow transition"
+                                              onclick="toggleTrackDetails('${mobileRowId}')">
+                                            ${m.adeName}
+                                        </span>
+                                        ${m.country ? `<span class="px-1.5 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-zinc-300 font-mono text-[10px] font-bold">${m.country}</span>` : ''}
+                                        ${matchBadge}
+                                    </div>
+                                    ${m.info ? `<p class="text-[11px] text-zinc-400 mt-0.5 truncate">${m.info}</p>` : ''}
+                                </div>
+                            </div>
+
+                            <!-- ADE Link Button (Instant access on mobile, top right) -->
+                            <a href="${m.link || '#'}" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-ade-yellow hover:bg-[#fff700] text-black font-black text-xs uppercase tracking-wider flex-shrink-0 transition hover:scale-105 shadow-md">
+                                <span>ADE</span> <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                            </a>
+                        </div>
+
+                        <!-- Secondary Row: Spotify Liked Count & Date -->
+                        <div class="flex items-center justify-between text-xs pt-1.5 border-t border-ade-border/60">
+                            <button onclick="toggleTrackDetails('${mobileRowId}')" 
+                                    class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 font-mono text-xs font-bold text-[#1ed760] hover:border-[#1db954]/50 transition">
+                                <i class="fa-brands fa-spotify text-[11px]"></i>
+                                <span>${m.songCount} liked ${m.songCount === 1 ? 'song' : 'songs'}</span>
+                                <i class="fa-solid fa-chevron-down text-[8px] text-zinc-400 ml-0.5"></i>
+                            </button>
+                            ${m.latestDateStr && m.latestDateStr !== '—' ? `
+                                <span class="text-[10px] font-mono text-zinc-500">
+                                    <i class="fa-regular fa-clock text-[9px] mr-1"></i>${m.latestDateStr}
+                                </span>
+                            ` : ''}
+                        </div>
+
+                        <!-- Track Preview Pills (Mobile) -->
+                        <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
+                            ${mobilePreviewPills}
+                            ${extraCount > 0 ? `
+                                <button onclick="toggleTrackDetails('${mobileRowId}')" 
+                                        class="px-2 py-1 rounded-lg bg-ade-surface hover:bg-ade-hover text-ade-yellow border border-ade-border text-[10px] font-mono font-bold transition hover:border-ade-yellow/50">
+                                    +${extraCount} more
+                                </button>
+                            ` : ''}
+                        </div>
+
+                        <!-- Collapsible Track Drawer (Mobile) -->
+                        <div id="${mobileRowId}" class="hidden mt-1 pt-2.5 border-t border-ade-border/70 flex flex-col gap-2">
+                            <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                                <span>Liked Tracks (${m.tracks.length}):</span>
+                                <button onclick="toggleTrackDetails('${mobileRowId}')" class="text-zinc-500 hover:text-white text-[10px]">
+                                    <i class="fa-solid fa-xmark mr-1"></i>Close
+                                </button>
+                            </div>
+                            <ul class="flex flex-col gap-1.5">
+                                ${mobileTracksListHtml}
+                            </ul>
+                        </div>
+                    `;
+                    cardsContainer.appendChild(card);
+                }
             });
         }
 
